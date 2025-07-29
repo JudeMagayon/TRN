@@ -1,0 +1,15 @@
+Thank you for looking into this.
+
+The issue with Jupyter kernels failing in VS Code on my Azure Virtual Desktop is now resolved by running VS Code in Administrator mode.
+
+From a cloud engineering perspective, this is a functional workaround, but it is not ideal because:
+
+Running developer tools in admin mode increases security exposure.
+
+It bypasses principle of least privilege best practices.
+
+It may affect extension updates and profile isolation in the long term.
+
+I will proceed with this workaround for now, but I recommend considering a profile/FSLogix permissions review so that Jupyter can run under a non‑admin user in the future.
+
+Thank you for your assistance.
