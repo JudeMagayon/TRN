@@ -1,15 +1,1 @@
-Heartbeat
-| where TimeGenerated > ago(24h)
-| where Computer == "EXTWVD207"
-| summarize LastHeartbeat=max(TimeGenerated) by Computer
-| join kind=inner (
-    Event
-    | where TimeGenerated > ago(24h)
-    | where Computer == "EXTWVD207"
-    | where EventLog == "Application"
-    | where Source in ("Application Error", "Windows Error Reporting")
-    | where RenderedDescription contains "explorer.exe"
-    | project CrashTime=TimeGenerated, Computer, CrashDetails=RenderedDescription
-) on Computer
-| project Computer, LastHeartbeat, CrashTime, CrashDetails
-| order by CrashTime desc
+
